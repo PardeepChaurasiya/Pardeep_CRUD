@@ -1,0 +1,60 @@
+<body>
+    <form #frm="ngForm" (ngSubmit)="addItem(frm)" *ngIf="!toggleForm">
+        <h2>Add Item</h2>
+        <div>
+            <label class="form-group">
+                Name :
+            </label>
+            <input type="text" class="form-control" name="itemName" placeholder="Enter Product Name" value="" ngModel
+                required>
+        </div>
+        <div>
+            <label class="form-group">
+                Quantity :
+            </label>
+
+            <input type="number" class="form-control" name="itemQuantity" placeholder="Enter Product Quantity" value=""
+                ngModel required>
+        </div>
+        <button type="submit" name="button" class="btn btn-success" [disabled]=frm.invalid>Add Item</button>
+    </form>
+
+
+    <form #editform="ngForm" (ngSubmit)="editItem(editform)" *ngIf="toggleForm">
+        <h2>Edit Item</h2>
+        <div>
+            <label class="form-group">
+                Name :
+            </label>
+
+            <input type="text" class="form-control" name="itemName" placeholder="Edit Product Name" value=""
+                [ngModel]="selectedItem.itemName">
+        </div>
+        <div>
+            <label class="form-group">
+                Quantity :
+            </label>
+            <br>
+            <input type="number" class="form-control" name="itemQuantity" placeholder="Enter Product Name" value=""
+                [ngModel]="selectedItem.itemQuantity">
+        </div>
+        <button type="submit" name="button" class="btn btn-success">Save</button>
+    </form>
+    <br>
+
+
+    <div class="contant">
+        <div>
+            <h2>Shopping List</h2>
+        </div>
+
+        <div *ngFor="let item of shoppingItemList" class="shopping-list">
+            <p> {{item.itemName}}</p>
+            <p> {{item.itemQuantity}}</p>
+            <button type="button" name="button" class="btn btn-primary" (click)="showEditForm(item)"
+                [disabled]="toggleForm">Edit</button>
+
+            <button type="button" name="button" class="btn btn-danger" (click)="deleteItem(item._id)">Delete</button>
+        </div>
+    </div>
+</body>

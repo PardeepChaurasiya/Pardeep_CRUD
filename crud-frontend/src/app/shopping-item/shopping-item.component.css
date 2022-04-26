@@ -1,0 +1,34 @@
+body{
+    background-color: rgb(224, 224, 161);
+}
+
+h2{
+    text-align: center
+}
+
+.form-control{
+    size: 20;
+    border-radius: 10%;
+    width: 20%;
+    
+}
+
+.contant{
+    display:flex;
+    margin: 100px;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 300px;
+    width: 800px;
+}
+
+.shopping-list{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.form-group{
+    background-color: rgb(235, 178, 94)
+}
+
